@@ -13,6 +13,15 @@ let timeout;
 let lastHole;
 let countdown;
 
+function openBox(){
+  modalBox.style.visibility = 'visible';
+  modalBox.style.opacity = '1';
+  modalBox.style.position = 'static';
+  mainButton.style.opacity = '0';
+  mainButton.style.visibility = 'hidden';
+  mainButton.style.position = 'absolute';
+}
+
 function startGame(min,max) {
   score = 0
   scoreBoard.textContent = score;
@@ -30,7 +39,8 @@ function time(seconds){
   countdown = setInterval(()=>{
     const sec = Math.round((then - Date.now())/1000); 
     //Stop it on 0
-    if(sec < 0 ){
+    console.log(sec);
+    if(sec === 0 ){
       clearInterval(countdown);
       timeout = true
       //Bring back the start now button
@@ -38,7 +48,6 @@ function time(seconds){
       mainButton.style.visibility = 'visible';
       mainButton.style.position = 'static';
       mainButton.style.opacity = '1';
-      return;
     }
     displayTime(sec);
   },1000); 
@@ -48,14 +57,6 @@ function displayTime(seconds){
   timer.textContent = display;
 }
 
-function openBox(){
-  modalBox.style.visibility = 'visible';
-  modalBox.style.opacity = '1';
-  modalBox.style.position = 'static';
-  mainButton.style.opacity = '0';
-  mainButton.style.visibility = 'hidden';
-  mainButton.style.position = 'absolute';
-}
 
 function randomTime(min,max){
   return  Math.round(Math.random() * (max-min) + min);
@@ -81,7 +82,7 @@ function randomItem(list){
 
 function addScore(e) {
   if(!e.isTrusted) return; //Avoid javascript clicks as cheating method;
-  this.classList.remove('up');
+  this.closest('.hole').classList.remove('up'); //remove the mole after you click it
   scoreBoard.textContent = score++;
 }
 
