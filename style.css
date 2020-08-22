@@ -47,7 +47,9 @@ button{
   display: inline-block;
 }
 .button-main{
-  visibility: visible;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
 }
 .button-secondary{
   flex: 1;
@@ -56,7 +58,7 @@ button{
 
 .modal-difficulty{
   display: flex;
-  position: absolute;
+  position: sticky;
   visibility: hidden;
   opacity: 0;
   width: 100%;
@@ -112,6 +114,14 @@ button{
   top: 0;
 }
 
+.button-active{
+  visibility: visible;
+  opacity: 1;
+}
+.button-main .button-active{
+  position: static;
+}
+
 /*Media queries for phone use*/
 @media only screen and (max-width:767px){
   html {
@@ -127,6 +137,9 @@ button{
   .container-buttons{
     width: 100%;
     margin: 3rem 0 0 0;
+  }
+  .button-secondary{
+    margin: 0 3%;
   }
   .counters{
     display: block;

@@ -11,16 +11,14 @@
       <div class="counters"><span class="score">0</span><span class="time">00</span></div>
     </h1>
   <div class="container-buttons">
-    <button class="button-main" onClick="openBox()">Start!</button>
+    <button class="button-main button-active" onClick="openBox()">Start!</button>
     <div class="modal-difficulty">
-      <button class="button-secondary" onclick="startGame(500,1000)">Easy</button>
-      <button class="button-secondary" onclick="startGame(300,800)">Hard</button>
-      <button class="button-secondary" onclick="startGame(200,600)">Extreme</button>
-      <button class="button-secondary" onclick="startGame(80 ,250)">Insane</button>
+      <button class="button-secondary"  data-speed="1200,2000">Easy</button>
+      <button class="button-secondary"  data-speed="800,1500">Hard</button>
+      <button class="button-secondary" data-speed="500,800">Extreme</button>
+      <button class="button-secondary"  data-speed="300,700">Insane</button>
     </div>
   </div>
-
-
 
   <div class="game">
     <div class="hole hole1">
